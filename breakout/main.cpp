@@ -43,4 +43,22 @@ int main() {
 	Brick brick1(100, 100, 50, 20);
 	Brick brick2(160, 100, 50, 20);
 	Brick brick3(220, 100, 50, 20);
+
+	while (window.isOpen()) {
+		sf::Event event;
+		while (window.pollEvent(event)) {
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+
+
+		window.clear();
+
+		brick1.draw(window);
+		brick2.draw(window);
+		brick3.draw(window);
+
+		window.display();
+	}
+	return 0;
 }
