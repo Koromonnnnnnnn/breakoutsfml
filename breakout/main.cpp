@@ -37,6 +37,34 @@ public:
 	}
 };
 
+class Ball {
+private:
+	float radius;
+	float xpos;
+	float ypos;
+	float xVelocity;
+	float yVelocity;
+	sf::CircleShape shape;
+public:
+	Ball(float x, float y, float xvel, float yvel) {
+		xpos = x;
+		ypos = y;
+		xvel = xvel;
+		yvel = yvel;
+		shape.setRadius(radius);
+		shape.setPosition(xpos, ypos);
+		shape.setFillColor(sf::Color::White);
+	}
+
+	void move(float windowWidth, float windowHeight) {
+		xpos += xvel;
+
+		if (xpos <= 0 || xpos + radius * 2 >= windowWidth) {
+			xvel = -xvel; // Reverse horizontal direction
+		}
+	}
+};
+
 int main() {
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Breakout");
