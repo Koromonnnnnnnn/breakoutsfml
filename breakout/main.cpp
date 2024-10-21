@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
 
-// Brick Class
 class Brick {
 private:
     float width;
@@ -82,6 +81,26 @@ public:
     }
 };
 
+class Paddle {
+private:
+    float width;
+    float height;
+    float xpos;
+    float ypos;
+    sf::RectangleShape shape;
+public:
+    Paddle(float x, float y, float w, float h) : xpos(x), ypos(y), width(w), height(h) {
+        shape.setSize(sf::Vector2f(width, height));
+        shape.setPosition(xpos, ypos);
+        shape.setFillColor(sf::Color::White);
+    }
+
+    void draw(sf::RenderWindow& window) {
+        window.draw(shape);
+    }
+
+};
+
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Breakout");
     Brick brick1(100, 100, 50, 20);
@@ -89,6 +108,7 @@ int main() {
     Brick brick3(220, 100, 50, 20);
 
     Ball ball(0, 0, 5, 5);
+    Paddle paddle1(340, 550, 150, 25);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -106,6 +126,8 @@ int main() {
         brick3.draw(window);
 
         ball.draw(window);
+        
+        paddle1.draw(window);
 
         ball.brickCollision(brick1);
         ball.brickCollision(brick2);
