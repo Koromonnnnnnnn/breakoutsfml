@@ -148,6 +148,8 @@ int main() {
     Brick brick1(100, 100, 50, 20);
     Brick brick2(160, 100, 50, 20);
     Brick brick3(220, 100, 50, 20);
+    Brick brick4(280, 100, 50, 20);
+    Brick brick5(340, 100, 50, 20);
 
     Ball ball(400, 300, 0.25, 0.25); 
     Paddle paddle1(340, 575, 150, 25);
@@ -168,6 +170,8 @@ int main() {
         brick1.draw(window);
         brick2.draw(window);
         brick3.draw(window);
+        brick4.draw(window);
+        brick5.draw(window);
 
         ball.draw(window);
 
@@ -176,6 +180,8 @@ int main() {
         ball.brickCollision(brick1);
         ball.brickCollision(brick2);
         ball.brickCollision(brick3);
+        ball.brickCollision(brick4);
+        ball.brickCollision(brick5);
 
         // Check for ball and paddle collision
         ball.paddleCollision(paddle1);
